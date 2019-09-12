@@ -96,13 +96,6 @@ function analog(x) {
   let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
   let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
   h = parseInt(h, 10);
-  // for (let i = 4; i > 0; i--) {
-  //   if ( i > 2) {}
-  //   h = h + 20;
-  //   document.querySelector(
-  //     ".color" + i
-  //   ).style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
-  // }
   h = h + 20;
   colorTwo.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
   document.querySelector("#hsl2").textContent = `${h} ${s}% ${l}%`;
@@ -138,9 +131,15 @@ function monochrom(x) {
   colorOne.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
   hslOne.textContent = `${h} ${s}% ${l}%`;
   l = l - 30;
+  if (l < 0) {
+    l = 0;
+  }
   colorThree.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
   document.querySelector("#hsl3").textContent = `${h} ${s}% ${l}%`;
   l = l - 10;
+  if (l < 0) {
+    l = 0;
+  }
   colorFour.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
   document.querySelector("#hsl4").textContent = `${h} ${s}% ${l}%`;
   return `${h}, ${s}%, ${l}%`;
