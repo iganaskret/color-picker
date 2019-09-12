@@ -13,21 +13,22 @@ const hexOne = document.querySelector("#hex1");
 const rgbOne = document.querySelector("#rgb1");
 const hslOne = document.querySelector("#hsl1");
 
-function hexToRGB(h) {
-  h = h.replace("#", "");
-  let r = parseInt(h.substring(0, 2), 16);
-  let g = parseInt(h.substring(2, 4), 16);
-  let b = parseInt(h.substring(4, 6), 16);
+//converting functions
+function HEXToRGB(HEXcolor) {
+  HEXcolor = HEXcolor.replace("#", "");
+  let r = parseInt(HEXcolor.substring(0, 2), 16);
+  let g = parseInt(HEXcolor.substring(2, 4), 16);
+  let b = parseInt(HEXcolor.substring(4, 6), 16);
 
   let result = "(" + r + "," + g + "," + b + ")";
   return result;
 }
 
-function rgbToHSL(x) {
-  x = x.slice(1, -1);
-  let r = x.split(",")[0];
-  let g = x.split(",")[1];
-  let b = x.split(",")[2];
+function RGBToHSL(RGBcolor) {
+  RGBcolor = RGBcolor.slice(1, -1);
+  let r = RGBcolor.split(",")[0];
+  let g = RGBcolor.split(",")[1];
+  let b = RGBcolor.split(",")[2];
   r /= 255;
   g /= 255;
   b /= 255;
@@ -70,31 +71,35 @@ function rgbToHSL(x) {
   return result;
 }
 
-function splitRGB(x) {
-  x = x.slice(1, -1);
-  let r = x.split(",")[0];
-  let g = x.split(",")[1];
-  let b = x.split(",")[2];
-  r = rgbToHex(r);
-  g = rgbToHex(g);
-  b = rgbToHex(b);
+function splitRGB(RGBcolor) {
+  RGBcolor = RGBcolor.slice(1, -1);
+  let r = RGBcolor.split(",")[0];
+  let g = RGBcolor.split(",")[1];
+  let b = RGBcolor.split(",")[2];
+  r = RGBToHex(r);
+  g = RGBToHex(g);
+  b = RGBToHex(b);
 
   return `#${r}${g}${b}`;
 }
 
-function rgbToHex(x) {
-  let hex = Number(x).toString(16);
+function RGBToHex(RGBletter) {
+  let hex = Number(RGBletter).toString(16);
   if (hex.length < 2) {
     hex = "0" + hex;
   }
   return hex;
 }
 
-function analog(x) {
-  x = x.slice();
-  let h = x.split(" ")[0];
-  let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
-  let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
+//harmony functions
+function analog(HSLcolor) {
+  HSLcolor = HSLcolor.slice();
+  let h = HSLcolor.split(" ")[0];
+  let s = HSLcolor.substring(HSLcolor.indexOf(" ") + 1, HSLcolor.indexOf("%"));
+  let l = HSLcolor.substring(
+    HSLcolor.lastIndexOf(" ") + 1,
+    HSLcolor.lastIndexOf("%")
+  );
   h = parseInt(h, 10);
   h = h + 20;
   colorTwo.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
@@ -111,11 +116,14 @@ function analog(x) {
   return `${h}, ${s}%, ${l}%`;
 }
 
-function monochrom(x) {
-  x = x.slice();
-  let h = x.split(" ")[0];
-  let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
-  let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
+function monochrom(HSLcolor) {
+  HSLcolor = HSLcolor.slice();
+  let h = HSLcolor.split(" ")[0];
+  let s = HSLcolor.substring(HSLcolor.indexOf(" ") + 1, HSLcolor.indexOf("%"));
+  let l = HSLcolor.substring(
+    HSLcolor.lastIndexOf(" ") + 1,
+    HSLcolor.lastIndexOf("%")
+  );
   l = parseInt(l, 10);
 
   l = l + 10;
@@ -145,11 +153,14 @@ function monochrom(x) {
   return `${h}, ${s}%, ${l}%`;
 }
 
-function triad(x) {
-  x = x.slice();
-  let h = x.split(" ")[0];
-  let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
-  let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
+function triad(HSLcolor) {
+  HSLcolor = HSLcolor.slice();
+  let h = HSLcolor.split(" ")[0];
+  let s = HSLcolor.substring(HSLcolor.indexOf(" ") + 1, HSLcolor.indexOf("%"));
+  let l = HSLcolor.substring(
+    HSLcolor.lastIndexOf(" ") + 1,
+    HSLcolor.lastIndexOf("%")
+  );
   l = parseInt(l, 10);
   h = parseInt(h, 10);
 
@@ -176,11 +187,14 @@ function triad(x) {
   return `${h}, ${s}%, ${l}%`;
 }
 
-function complement(x) {
-  x = x.slice();
-  let h = x.split(" ")[0];
-  let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
-  let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
+function complement(HSLcolor) {
+  HSLcolor = HSLcolor.slice();
+  let h = HSLcolor.split(" ")[0];
+  let s = HSLcolor.substring(HSLcolor.indexOf(" ") + 1, HSLcolor.indexOf("%"));
+  let l = HSLcolor.substring(
+    HSLcolor.lastIndexOf(" ") + 1,
+    HSLcolor.lastIndexOf("%")
+  );
   l = parseInt(l, 10);
   h = parseInt(h, 10);
 
@@ -210,11 +224,14 @@ function complement(x) {
   return `${h}, ${s}%, ${l}%`;
 }
 
-function compound(x) {
-  x = x.slice();
-  let h = x.split(" ")[0];
-  let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
-  let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
+function compound(HSLcolor) {
+  HSLcolor = HSLcolor.slice();
+  let h = HSLcolor.split(" ")[0];
+  let s = HSLcolor.substring(HSLcolor.indexOf(" ") + 1, HSLcolor.indexOf("%"));
+  let l = HSLcolor.substring(
+    HSLcolor.lastIndexOf(" ") + 1,
+    HSLcolor.lastIndexOf("%")
+  );
   l = parseInt(l, 10);
   h = parseInt(h, 10);
 
@@ -238,11 +255,14 @@ function compound(x) {
   return `${h}, ${s}%, ${l}%`;
 }
 
-function shades(x) {
-  x = x.slice();
-  let h = x.split(" ")[0];
-  let s = x.substring(x.indexOf(" ") + 1, x.indexOf("%"));
-  let l = x.substring(x.lastIndexOf(" ") + 1, x.lastIndexOf("%"));
+function shades(HSLcolor) {
+  HSLcolor = HSLcolor.slice();
+  let h = HSLcolor.split(" ")[0];
+  let s = HSLcolor.substring(HSLcolor.indexOf(" ") + 1, HSLcolor.indexOf("%"));
+  let l = HSLcolor.substring(
+    HSLcolor.lastIndexOf(" ") + 1,
+    HSLcolor.lastIndexOf("%")
+  );
   console.log(s);
   s = parseInt(s, 10);
 
@@ -273,37 +293,20 @@ function shades(x) {
   return `${h}, ${s}%, ${l}%`;
 }
 
+//read value and display
 function changeValue() {
   root.style.setProperty("--color", colorInput.value);
   hex.textContent = colorInput.value;
-  rgb.textContent = hexToRGB(hex.textContent);
-  hsl.textContent = rgbToHSL(rgb.textContent);
+  rgb.textContent = HEXToRGB(hex.textContent);
+  hsl.textContent = RGBToHSL(rgb.textContent);
 
-  showSelected();
-
-  rgbOne.textContent = colorOne.style.backgroundColor.substring(3);
-  hexOne.textContent = splitRGB(rgbOne.textContent);
-  document.querySelector(
-    "#rgb2"
-  ).textContent = colorTwo.style.backgroundColor.substring(3);
-  document.querySelector(
-    "#rgb3"
-  ).textContent = colorThree.style.backgroundColor.substring(3);
-  document.querySelector(
-    "#rgb4"
-  ).textContent = colorFour.style.backgroundColor.substring(3);
-  document.querySelector("#hex2").textContent = splitRGB(
-    document.querySelector("#rgb2").textContent
-  );
-  document.querySelector("#hex3").textContent = splitRGB(
-    document.querySelector("#rgb3").textContent
-  );
-  document.querySelector("#hex4").textContent = splitRGB(
-    document.querySelector("#rgb4").textContent
-  );
+  showHarmony();
+  for (let i = 0; i <= 4; i++) {
+    displayHarmonies(i);
+  }
 }
 
-function showSelected() {
+function showHarmony() {
   const value = theme[theme.selectedIndex].value;
   if (value == "analog") {
     analog(hsl.textContent);
@@ -319,7 +322,12 @@ function showSelected() {
     shades(hsl.textContent);
   }
 }
+
+function displayHarmonies (i) {
+  document.querySelector("#rgb" + i);.textContent = document.querySelector(".color" + 1).style.backgroundColor.substring(3);
+  document.querySelector("#hex" + i).textContent = splitRGB(document.querySelector("#rgb" + i).textContent);
+}
 window.addEventListener("DOMContentLoaded", event => {
   colorInput.addEventListener("change", changeValue);
-  theme.addEventListener("change", showSelected);
+  theme.addEventListener("change", showHarmony);
 });
