@@ -323,9 +323,13 @@ function showHarmony() {
   }
 }
 
-function displayHarmonies (i) {
-  document.querySelector("#rgb" + i);.textContent = document.querySelector(".color" + 1).style.backgroundColor.substring(3);
-  document.querySelector("#hex" + i).textContent = splitRGB(document.querySelector("#rgb" + i).textContent);
+function displayHarmonies(i) {
+  document.querySelector("#rgb" + i).textContent = document
+    .querySelector(".color" + i)
+    .style.backgroundColor.substring(3);
+  document.querySelector("#hex" + i).textContent = splitRGB(
+    document.querySelector("#rgb" + i).textContent
+  );
 }
 window.addEventListener("DOMContentLoaded", event => {
   colorInput.addEventListener("change", changeValue);
