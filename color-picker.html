@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="color-picker.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label id="style-selector">
+      Choose harmony
+      <select name="theme" id="theme">
+        <option value="analog">Analogous</option>
+        <option value="monochrom">Monochromatic</option>
+        <option value="triad">Triad</option>
+        <option value="complement">Complementary</option>
+        <option value="compound">Compound</option>
+        <option value="shades">Shades</option>
+      </select>
+    </label>
+    <label>
+      Pick your color
+      <input type="color" id="picker" value="#ffffff" />
+    </label>
+    <div class="grid">
+      <section>
+        <div class="color1"></div>
+        <h1>HEX code: <span id="hex1">#ffffff</span></h1>
+        <h1>RGB values: rgb<span id="rgb1">(255, 255, 255)</span></h1>
+        <h1>HSL values: <span id="hsl1">0 0% 100%</span></h1>
+      </section>
+      <section>
+        <div class="color2"></div>
+        <h1>HEX code: <span id="hex2">#ffffff</span></h1>
+        <h1>RGB values: rgb<span id="rgb2">(255, 255, 255)</span></h1>
+        <h1>HSL values: <span id="hsl2">0 0% 100%</span></h1>
+      </section>
+      <section>
+        <div class="picked-color"></div>
+        <h1>HEX code: <span id="hex">#ffffff</span></h1>
+        <h1>RGB values: rgb<span id="rgb">(255, 255, 255)</span></h1>
+        <h1>HSL values: <span id="hsl">0 0% 100%</span></h1>
+      </section>
+      <section>
+        <div class="color3"></div>
+        <h1>HEX code: <span id="hex3">#ffffff</span></h1>
+        <h1>RGB values: rgb<span id="rgb3">(255, 255, 255)</span></h1>
+        <h1>HSL values: <span id="hsl3">0 0% 100%</span></h1>
+      </section>
+      <section>
+        <div class="color4"></div>
+        <h1>HEX code: <span id="hex4">#ffffff</span></h1>
+        <h1>RGB values: rgb<span id="rgb4">(255, 255, 255)</span></h1>
+        <h1>HSL values: <span id="hsl4">0 0% 100%</span></h1>
+      </section>
+    </div>
+  </body>
+  <script src="color-picker.js"></script>
+</html>

@@ -1,0 +1,42 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 5px;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 1em;
+  opacity: 0.7;
+}
+
+label {
+  padding-right: 30px;
+}
+
+input {
+  border: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 30px;
+}
+
+.grid div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.grid .picked-color {
+  background-color: var(--color);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
